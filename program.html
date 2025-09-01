@@ -1,1 +1,43 @@
-<!DOCTYPE html><html><body><h1>Programme</h1></body></html>
+
+<!DOCTYPE html><html lang="fr"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mon programme — FireFit</title>
+<link rel="stylesheet" href="./styles.css"><script defer src="./app.js"></script>
+<script defer src="./programs.js"></script>
+</head><body>
+<nav><div class="brand"><img src="./assets/icon-192.png"><b>FireFit</b></div>
+<a class="btn secondary" href="./index.html">Accueil</a></nav>
+<div class="container grid">
+  <div class="card" id="locked">
+    <h1>🔒 Accès requis</h1>
+    <p>Achète l'accès au programme recommandé ou prends l'abonnement.</p>
+    <div class="row"><a class="btn" href="./paywall.html">Aller au paiement</a></div>
+  </div>
+  <div class="card" id="unlocked" style="display:none">
+    <h1 id="title">Mon programme</h1>
+    <p><small>Le PDF s'ouvre ci-dessous depuis Google Drive. Remplace les liens <code>REPLACE_ME</code> dans <b>programs.js</b>.</small></p>
+    <div id="driveWrap" class="card" style="padding:0;height:70vh">
+      <iframe id="viewer" src="" style="width:100%;height:100%;border:0;border-radius:14px" allow="autoplay"></iframe>
+    </div>
+  </div>
+</div>
+<script>
+const access = JSON.parse(localStorage.getItem('access')||'null');
+const result = JSON.parse(localStorage.getItem('result')||'null');
+function gId(slug){return (window.PROGRAMS||{})[slug];}
+let program = null;
+if(access === 'full-access'){ program = gId(result?.slug) || {title:'Accès complet', drive:null}; }
+else if(access){ program = gId(access); }
+if(program){
+  document.getElementById('locked').style.display='none';
+  document.getElementById('unlocked').style.display='block';
+  document.getElementById('title').textContent = program.title || 'Mon programme';
+  if(program.drive && program.drive.includes('/d/')){
+    const fileId = program.drive.split('/d/')[1].split('/')[0];
+    document.getElementById('viewer').src = `https://drive.google.com/file/d/${fileId}/preview`;
+  }else{
+    document.getElementById('driveWrap').innerHTML = '<div style="padding:18px">Ajoute ton lien Google Drive dans <b>programs.js</b> (format: https://drive.google.com/file/d/ID/view?...).</div>';
+  }
+}
+</script>
+</body></html>
