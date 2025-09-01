@@ -1,0 +1,1 @@
+console.log('FireFit app loaded')
