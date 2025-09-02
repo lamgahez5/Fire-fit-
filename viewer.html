@@ -1,0 +1,18 @@
+<!doctype html><html lang="fr"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FireFit – Programme</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+  iframe{position:fixed;top:64px;left:0;right:0;bottom:0;width:100%;height:calc(100% - 64px);border:0}
+  .dl{position:fixed;top:64px;right:10px;z-index:2}
+</style>
+</head><body>
+<header class="header"><img src="assets/logo-firefit.png" alt=""><div class="brand">F I R E F I T</div></header>
+<div class="dl"><a id="download" class="btn ghost" target="_blank">📥 Télécharger</a></div>
+<iframe id="pdf"></iframe>
+<script>
+  const p = new URLSearchParams(location.search);
+  document.getElementById('pdf').src = p.get('preview') || '#';
+  document.getElementById('download').href = p.get('dl') || '#';
+</script>
+</body></html>
