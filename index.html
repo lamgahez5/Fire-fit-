@@ -1,0 +1,65 @@
+<!doctype html><html lang="fr">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FireFit – Programmes & Coaching</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="header">
+  <div class="wrap nav">
+    <img src="assets/logo-firefit.png" class="logo" alt="FireFit">
+    <div class="brand">F I R E F I T</div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <h1>Ton programme 🔥 prêt en 60 secondes</h1>
+    <p class="sub">3 objectifs. 3 niveaux. 2 matériels. PDF immédiat + envoi par email.</p>
+    <div class="badges">
+      <div class="badge">⭐️⭐️⭐️⭐️⭐️ Best-seller</div>
+      <div class="badge">Design pro façon Basic‑Fit</div>
+      <div class="badge">Conseils nutrition (abonnement)</div>
+    </div>
+    <div class="kpis">
+      <div class="k"><b>9,90€</b><div>Programme unique</div></div>
+      <div class="k"><b>9,90€/mois</b><div>Abonnement + nutrition</div></div>
+      <div class="k"><b>60s</b><div>Livraison immédiate</div></div>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="grid3">
+      <select id="objectif" class="select">
+        <option>prise de masse</option>
+        <option>renforcement musculaire</option>
+        <option>sèche</option>
+      </select>
+      <select id="niveau" class="select">
+        <option>débutant</option>
+        <option>intermédiaire</option>
+        <option>confirmé</option>
+      </select>
+      <select id="materiel" class="select">
+        <option>sans matériel</option>
+        <option>salle de sport</option>
+      </select>
+    </div>
+    <div class="grid2" style="margin-top:12px">
+      <input id="email" class="input" placeholder="Email pour recevoir le PDF (recommandé)">
+      <div class="note">Mode sans paiement : redirection directe + email si l’API est configurée.</div>
+    </div>
+    <div class="grid2" style="margin-top:14px">
+      <button id="one" class="btn pulse">Obtenir mon programme – 9,90€</button>
+      <button id="sub" class="btn alt">Abonnement + Nutrition – 9,90€/mois</button>
+    </div>
+    <small class="sec">“Confirmé” = avancé. “Sèche” = perte de poids.</small>
+  </section>
+</main>
+
+<footer class="footer">© FireFit – 2025</footer>
+
+<script type="module" src="js/config.js"></script>
+<script type="module" src="js/programmes-map.js"></script>
+<script type="module" src="js/checkout.js"></script>
+</body></html>
